@@ -1,4 +1,4 @@
-package hu.progmatic;
+package hu.progmatic.oop_01_generics;
 
 import java.util.Objects;
 
