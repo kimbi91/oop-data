@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Document document = new Document(1, "Gyűrűk Ura");
         Document document2 = new Document(2, "Harry Potter");
-        ChangeTracker favoriteBook = new ChangeTracker();
+        ChangeTracker<Document> favoriteBook = new ChangeTracker<>();  // <> diamond operator: a jobb oldali a bal oldali tipusat veszi fel
         favoriteBook.addVersion(document);
         favoriteBook.addVersion(document);
         favoriteBook.addVersion(document2);
@@ -15,7 +15,7 @@ public class Main {
 
         OperatingSystem os1 = new OperatingSystem(1,"Windows");
         OperatingSystem os2 = new OperatingSystem(2, "Linux");
-        ChangeTracker favoriteOS = new ChangeTracker();
+        ChangeTracker<OperatingSystem> favoriteOS = new ChangeTracker<>();
         favoriteOS.addVersion(os1);
         favoriteOS.addVersion(os1);
         favoriteOS.addVersion(os2);
@@ -24,7 +24,7 @@ public class Main {
         System.out.println(favoriteOS.getChanges());
         System.out.println(favoriteOS.getLastVersion());
 
-        OperatingSystem lastFavorite = (OperatingSystem) favoriteOS.getLastVersion();
+        OperatingSystem lastFavorite = favoriteOS.getLastVersion();
         lastFavorite.setName(lastFavorite.getName() + " 2.0");
         System.out.println(lastFavorite);
     }

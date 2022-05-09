@@ -1,10 +1,10 @@
 package hu.progmatic.oop_01_generics;
 
-public class ChangeTracker {
-    private Object lastVersion;
+public class ChangeTracker<T> {
+    private T lastVersion;
     private int changes;
 
-    public void addVersion(Object version) {
+    public void addVersion(T version) {
         if (lastVersion == null || !lastVersion.equals(version)) {
             changes++;
         }
@@ -12,11 +12,11 @@ public class ChangeTracker {
         lastVersion = version;
     }
 
-    public Object getLastVersion() {
+    public T getLastVersion() {
         return lastVersion;
     }
 
-    public void setLastVersion(Object lastVersion) {
+    public void setLastVersion(T lastVersion) {
         this.lastVersion = lastVersion;
     }
 
