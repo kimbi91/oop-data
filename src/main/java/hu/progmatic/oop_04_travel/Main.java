@@ -20,12 +20,15 @@ public class Main {
             data = sc.nextLine();
             Travel travel = new Travel(data);
 
-            if (!travels.contains(travel)) {
-                travels.add(travel);
-            } else {
-                int index = travels.indexOf(travel);
-                travels.set(index, travel);
+            if (!data.isBlank()) {
+                if (!travels.contains(travel)) {
+                    travels.add(travel);
+                } else {
+                    int index = travels.indexOf(travel);
+                    travels.set(index, travel);
+                }
             }
+
         } while (!data.isBlank());
 
 
@@ -34,6 +37,26 @@ public class Main {
         for (Travel travel : travels) {
             System.out.println(travel);
         }
+
+        int distance = sc.nextInt();
+
+        List<Travel> filtered = filterTravelsByMinDistance(travels, distance);
+
+        for (Travel travel : filtered) {
+            System.out.println(travel);
+        }
+
     }
 
+    private static List<Travel> filterTravelsByMinDistance(List<Travel> travels, int minDistance) {
+        List<Travel> fileteredList = new ArrayList<>();
+
+        for (Travel travel : travels) {
+            if (travel.getDistance() >= minDistance) {
+                fileteredList.add(travel);
+            }
+        }
+
+        return fileteredList;
+    }
 }
