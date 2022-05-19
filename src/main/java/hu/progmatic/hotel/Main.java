@@ -44,5 +44,7 @@ public class Main {
         for (String citizenShip : bookingByCitizenship.keySet()) {
             System.out.println(citizenShip + ": " );
         }
+
+
     }
 }
